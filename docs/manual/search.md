@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Search
-nav_order: 10007
+parent: Just The Doc - Git Blog 활용하기
+nav_order: 7
 ---
 
 # Search
