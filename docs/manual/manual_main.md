@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Git Blog(Just The Doc) 활용하기
+title: Just The Doc 활용하기
 nav_order: 12
 has_children: true
 permalink: /doc/manual
