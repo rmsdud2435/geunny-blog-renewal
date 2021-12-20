@@ -3,7 +3,7 @@ layout: default
 title: Java
 nav_order: 4
 has_children: true
-permalink: /java
+permalink: /doc/java
 ---
 
 # Java

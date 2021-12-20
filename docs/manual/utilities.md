@@ -1,9 +1,10 @@
 ---
 layout: default
 title: Utilities
-nav_order: 10004
+nav_order: 4
+parent: Git Blog(Just The Doc) 활용하기
 has_children: true
-permalink: docs/utilities
+permalink: /doc/manual/utilities
 ---
 
 # Utilities

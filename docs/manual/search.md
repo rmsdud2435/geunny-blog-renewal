@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Search
-parent: Just The Doc - Git Blog 활용하기
+parent: Git Blog(Just The Doc) 활용하기
 nav_order: 7
+permalink: /doc/manual/search
 ---
 
 # Search
