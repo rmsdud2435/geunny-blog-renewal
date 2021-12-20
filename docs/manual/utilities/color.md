@@ -2,6 +2,8 @@
 layout: default
 title: Color
 parent: Utilities
+grand_parent: Git Blog(Just The Doc) 활용하기
+permalink: /docs/manual/utilities/color/
 ---
 
 # Color Utilities
