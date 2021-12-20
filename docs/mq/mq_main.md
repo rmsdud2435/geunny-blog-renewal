@@ -3,7 +3,7 @@ layout: default
 title: MQ
 nav_order: 9
 has_children: true
-permalink: /docs/mq
+permalink: /mq
 ---
 
 # MQ

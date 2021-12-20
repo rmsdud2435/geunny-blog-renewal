@@ -3,7 +3,7 @@ layout: default
 title: Spring/SpringBoot
 nav_order: 3
 has_children: true
-permalink: /docs/spring
+permalink: /spring
 ---
 
 # Spring/SpringBoot

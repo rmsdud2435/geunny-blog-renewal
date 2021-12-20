@@ -3,7 +3,7 @@ layout: default
 title: WEB/Was
 nav_order: 6
 has_children: true
-permalink: /docs/webwas
+permalink: /webwas
 ---
 
 # WEB/Was
