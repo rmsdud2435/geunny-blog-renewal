@@ -3,7 +3,7 @@ layout: default
 title: Search
 parent: Git Blog(Just The Doc) 활용하기
 nav_order: 7
-permalink: /doc/manual/search
+permalink: /doc/search
 ---
 
 # Search
