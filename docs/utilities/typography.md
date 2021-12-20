@@ -2,8 +2,6 @@
 layout: default
 title: Typography
 parent: Utilities
-grand_parent: Git Blog(Just The Doc) 활용하기
-permalink: /docs/manual/utilities/typography/
 ---
 
 # Typography Utilities

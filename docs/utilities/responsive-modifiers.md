@@ -2,8 +2,6 @@
 layout: default
 title: Responsive Modifiers
 parent: Utilities
-grand_parent: Git Blog(Just The Doc) 활용하기
-permalink: /docs/manual/utilities/responsive-modifiers/
 ---
 
 # Responsive modifiers

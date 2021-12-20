@@ -4,7 +4,7 @@ title: Utilities
 nav_order: 4
 parent: Git Blog(Just The Doc) 활용하기
 has_children: true
-permalink: /doc/manual/utilities
+permalink: /doc/utilities
 ---
 
 # Utilities
