@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Code with line numbers
-parent: Code
+parent: UI Components
 grand_parent: UI Components
 permalink: /docs/ui-components/code/line-numbers/
 ---

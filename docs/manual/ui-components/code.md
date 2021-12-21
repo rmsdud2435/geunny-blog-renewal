@@ -2,8 +2,8 @@
 layout: default
 title: Code
 parent: UI Components
-has_children: true
-nav_order: 10006
+grand_parent: Just The Doc 활용하기
+permalink: /docs/manual/ui-components/buttons/
 ---
 
 # Code

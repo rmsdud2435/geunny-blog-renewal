@@ -2,7 +2,8 @@
 layout: default
 title: Typography
 parent: UI Components
-nav_order: 10001
+grand_parent: Just The Doc 활용하기
+permalink: /docs/manual/ui-components/buttons/
 ---
 
 # Typography

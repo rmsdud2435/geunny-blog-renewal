@@ -1,9 +1,8 @@
 ---
 layout: default
 title: UI Components
-nav_order: 10003
 has_children: true
-permalink: /docs/ui-components
+parent: Just The Doc 활용하기
 ---
 
 # UI Components
