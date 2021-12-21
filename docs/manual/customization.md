@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Customization
-nav_order: 10006
+parent: Just The Doc 활용하기
 ---
 
 # Customization

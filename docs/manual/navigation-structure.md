@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Navigation Structure
-nav_order: 10005
+parent: Just The Doc 활용하기
 ---
 
 # Navigation Structure

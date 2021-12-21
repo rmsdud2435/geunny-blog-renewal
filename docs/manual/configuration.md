@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Configuration
-nav_order: 10002
+parent: Just The Doc 활용하기
 ---
 
 # Configuration
