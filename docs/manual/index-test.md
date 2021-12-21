@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Markdown kitchen sink
-nav_order: 100099
+parent: Just The Doc 활용하기
 ---
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
