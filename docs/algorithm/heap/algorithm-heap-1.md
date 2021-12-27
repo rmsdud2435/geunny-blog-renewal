@@ -4,8 +4,7 @@ title: Heap을 이용한 알고리즘 문제 - 1
 parent: Heap Algorithm
 grand_parent: Algorithm
 permalink: /docs/algorithm/hash/heap-algo-1/
-
-
+---
 
 ## 문제설명
 
