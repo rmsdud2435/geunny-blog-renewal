@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Hash를 이용한 알고리즘 문제 - 2
+title: Hash 알고리즘 문제 - 2
 parent: Hash Algorithm
 grand_parent: Algorithm
 permalink: /docs/algorithm/hash/hash-algo-2/
