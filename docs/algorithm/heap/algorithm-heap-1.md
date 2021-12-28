@@ -3,7 +3,7 @@ layout: default
 title: Heap 알고리즘 문제 - 1
 parent: Heap Algorithm
 grand_parent: Algorithm
-permalink: /docs/algorithm/heap/heap-algo-1/
+permalink: /algorithm/heap/heap-algo-1/
 ---
 
 ## 문제설명

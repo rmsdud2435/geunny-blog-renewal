@@ -3,7 +3,7 @@ layout: default
 title: Hash 알고리즘 문제 - 3
 parent: Hash Algorithm
 grand_parent: Algorithm
-permalink: /docs/algorithm/hash/hash-algo-3/
+permalink: /algorithm/hash/hash-algo-3/
 ---
 
 ## 문제설명

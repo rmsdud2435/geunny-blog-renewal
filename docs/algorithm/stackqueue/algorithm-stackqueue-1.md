@@ -3,7 +3,7 @@ layout: default
 title: Stack/Queue 알고리즘 문제 - 1
 parent: Stack Queue Algorithm
 grand_parent: Algorithm
-permalink: /docs/algorithm/stackqueue/sq-algo-1/
+permalink: /algorithm/stackqueue/sq-algo-1/
 ---
 
 
