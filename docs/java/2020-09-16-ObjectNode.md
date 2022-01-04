@@ -1,14 +1,8 @@
 ---
-layout:            post
-title:             "JsonNode와 ObjectNode 차이"
-menutitle:         "JsonNode와 ObjectNode 차이"
-tags:              JsonNode ObjectNode
-category:          Java
-author:            geunyoung
-cover:             /assets/mountain-alternative-cover.jpg
-published:         true
-language:          KO
-comments:          true
+layout: default
+title: JsonNode와 ObjectNode 차이
+parent: Java
+permalink: /java/mapper/3
 ---
 
 ## JsonNode와 ObjectNode

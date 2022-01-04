@@ -1,15 +1,8 @@
 ---
-layout:            post
-title:             "AES128방식을 통한 data 암호화/복호화(소스)"
-menutitle:         "AES128방식을 통한 data 암호화/복호화(소스)"
-tags:              data encrypt
-category:          Java
-author:            geunyoung
-cover:             /assets/mountain-alternative-cover.jpg
-published:         true
-language:          KO
-comments:          true
-math:		   false
+layout: default
+title: AES128방식을 통한 data 암호화/복호화(소스)
+parent: Java
+permalink: /java/encrypt/2
 ---
 
 데이터를 주고 받을 때 해킹방지를 위해 암호화하여 보내곤 한다.
