@@ -1,0 +1,67 @@
+---
+layout: default
+title: VSCode 시작하기
+parent: VSCode
+grand_parent: Tools
+permalink: /tools/vscode/1
+---
+
+## 들어가기 앞서...
+
+ 현재 회사에서 오픈소스를 활용한 관제솔루션 개발이나 PM 역할을 맡으면서 개발을 소홀히하다 다시 개발자의 꿈을 키워야겠다는 생각에 여러 기업에 이력서 및 코딩 시험을 치루고 있다. 많은 회사가 https://programmers.co.kr/ 사이트와 연동하여 코딩시험을 진행하는데 일반적으로 vscode 환경을 기본으로 깔고 진행을 한다. 평소 eclipse, STS만 써오던 나에겐 vscode를 적응하는데 많이 시간이 투자되고 tool을 잘활용하지 못하여 디버깅이나 오타 수정에 대해서 정말 비효율적으로 진행하며 많은 시험에서 아쉬움이 있었다. 평소에도 intelliJ나 vscode 등 요즘에 많이 사용하는 tool에 관심을 가지다 이번 계기에 VSCode에 익숙해지고 활용하는 방법에 대해 공부할 예정이다.
+
+ 프로젝트는 vscode 활용법, spring-boot 활용, JPA, 인증 모듈의 이해를 목적으로 진행할 것이다. 
+
+### VSCode 설치하기
+
+ 설치하는 것은 크게 어렵지 않았다. 공식 홈페이지(https://code.visualstudio.com/)에 가서 다운을 받아면 된다.
+<figure>
+<img src="{{ "/media/img/Tools/Tool1.png" | absolute_url }}" />
+<figcaption>출처 : https://lktprogrammer.tistory.com/71 </figcaption>
+</figure>
+
+### Java, Spring 연동하기
+
+ 이제 Java, Spring 프로젝트에 대한 세팅을 해야한다. vscode에는 extensions라는 것이 존재한다. 익숙한 eclipse와 비교하면 market place에서 plugin 설치 개념과 비슷하며 이곳에서 java, spring에 관련된 extentions를 설치를 진행한다.
+
+ 1) 좌측 상단의 5번째 아이콘에 커서를 올려보면 extentions라는 설명이 나올 것이다. 그 아이콘을 클릭하고 java extension pack를 검색하여 설치를 진행했다.
+<figure>
+<img src="{{ "/media/img/Tools/Tool2.PNG" | absolute_url }}" />
+</figure>
+
+2) 이후, 난 springboot를 활용할 것이니 spring boot extension pack을 검색하여 설치했다.
+<figure>
+<img src="{{ "/media/img/Tools/Tool3.png" | absolute_url }}" />
+</figure>
+
+
+### Problems, Error가 표기되지 않는다?
+
+  이제 세팅을 완료하고 프로젝트를 개발을 진행하는데 이상하게 문법 오류나 오타가 발생하여도 Problems 탭이나 화면에 표기가 되지 않았다. 그래서 처음엔 '오류 표시 관련된 extension도 깔아야하나?'하면서 인터넷을 뒤져보았지만 그런 내용이나 현상에 대해 정리한 글이 없었으며 나에게만 일어나는 현상인 것 같았다. 이러저런 시도와 실패를 겪고 내린 결과와 해결 방법은 아래와 같았다.
+
+  많은 프로젝트들이 최신 java버전을 쓰는 것이 아닌 1.8 이하 버전을 쓰고있다 생각했고 그 환경에 맞추기 위해 최신 버전의 java를 설치하지 않았더니 java extension pack을 설치할때 정상적으로 진행되지 않은 것 같았으며 그래서 몇가지 부분을 수동으로 설정해주었다.
+
+  우축 하단의 톱니바퀴를 클릭하고 settings에 들어가 java로 검색해서 runtime의 setting.json을 아래와 같이 설정했다.
+  <figure>
+  <img src="{{ "/media/img/Tools/Tool4.png" | absolute_url }}" />
+  </figure>
+  <figure>
+  <img src="{{ "/media/img/Tools/Tool5.PNG" | absolute_url }}" />
+  <figcaption>해당 내용 설정은 java extension pack 홈페이지 참고함</figcaption>
+  </figure>
+
+  이 후, spring initializr에서 java 버전 값 설정 하였다.
+  <figure>
+  <img src="{{ "/media/img/Tools/Tool6.png" | absolute_url }}" />
+  </figure>
+
+  마지막으로, language로 검색하여 default language를 java로 설정을 하니 정상적으로 오타나 문법에 대해 잡기 시작했다.
+  <figure>
+  <img src="{{ "/media/img/Tools/Tool7.png" | absolute_url }}" />
+  </figure>
+
+  다음 장에는 vscode에서 gradle을 활용하여 spring boot 프로젝트를 빌드 및 실행하는 방벙에 대해 정리할 예정이다.  
+
+## 참고 자료 및 사이트
+- https://lktprogrammer.tistory.com/71
+- https://doit1.tistory.com/32
