@@ -3,6 +3,7 @@ layout: default
 title: JsonNode와 ObjectNode 차이
 parent: Java
 permalink: /java/mapper/3
+nav_order: 89
 ---
 
 ## JsonNode와 ObjectNode

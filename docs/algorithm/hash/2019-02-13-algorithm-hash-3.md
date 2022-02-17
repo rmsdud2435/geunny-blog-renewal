@@ -4,6 +4,7 @@ title: Hash 알고리즘 문제 - 3
 parent: Hash Algorithm
 grand_parent: Algorithm
 permalink: /algorithm/hash/hash-algo-3/
+nav_order: 97
 ---
 
 ## 문제설명

@@ -4,6 +4,7 @@ title: Heap 알고리즘 문제 - 1
 parent: Heap Algorithm
 grand_parent: Algorithm
 permalink: /algorithm/heap/heap-algo-1/
+nav_order: 99
 ---
 
 ## 문제설명
