@@ -4,6 +4,7 @@ title: health checking하기
 parent: Spring
 grand_parent: Spring/SpringBoot
 permalink: /spring/spring/healthcheck/1
+nav_order: 91
 ---
 
 ## 들어가기 앞서...

@@ -3,6 +3,7 @@ layout: default
 title: "ORA-00923: FROM 키워드가 필요한 위치에 없습니다."
 parent: "Mistake & Tip"
 permalink: /tip/oracle/1
+nav_order: 99
 ---
 
 이번 추가개발 건에서 MSSQL과 Oracle을 같이 쓸 일이 생겼는데

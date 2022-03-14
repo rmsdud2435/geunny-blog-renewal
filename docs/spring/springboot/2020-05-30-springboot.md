@@ -4,6 +4,7 @@ title: SpringBoot 시작하기
 parent: SpringBoot
 grand_parent: Spring/SpringBoot
 permalink: /spring/springboot/start/1
+nav_order: 99
 ---
 
 ## 들어가기 앞서...

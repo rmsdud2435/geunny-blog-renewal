@@ -3,6 +3,7 @@ layout: default
 title: Websphere - 도메인 매핑이 안됨
 parent: "Mistake & Tip"
 permalink: /tip/websphere/1
+nav_order: 96
 ---
 
 ## 오류 현상

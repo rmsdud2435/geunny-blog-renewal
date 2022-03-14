@@ -3,6 +3,7 @@ layout: default
 title: 서버 다운시 원인 파악하기(Tomcat)
 parent: "Mistake & Tip"
 permalink: /tip/tomcat/1
+nav_order: 92
 ---
 
 ## 에러 발생

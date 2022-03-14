@@ -4,6 +4,7 @@ title: Spring Security 적용하기
 parent: SpringBoot
 grand_parent: Spring/SpringBoot
 permalink: /spring/springboot/security/1
+nav_order: 96
 ---
 
 ## 들어가기 앞서...

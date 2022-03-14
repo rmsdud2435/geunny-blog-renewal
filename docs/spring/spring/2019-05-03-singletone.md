@@ -4,6 +4,7 @@ title: 싱글톤 패턴에 대해서
 parent: Spring
 grand_parent: Spring/SpringBoot
 permalink: /spring/spring/singleton/1
+nav_order: 96
 ---
 
 

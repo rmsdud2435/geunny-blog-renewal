@@ -4,6 +4,7 @@ title: Thymleaf를 활용한 화면처리
 parent: SpringBoot
 grand_parent: Spring/SpringBoot
 permalink: /spring/springboot/thymlef/1
+nav_order: 97
 ---
 
 ## 들어가기 앞서...

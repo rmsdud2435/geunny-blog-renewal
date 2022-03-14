@@ -4,6 +4,7 @@ title: DB연동하기(feat. Lombok 적용)
 parent: SpringBoot
 grand_parent: Spring/SpringBoot
 permalink: /spring/springboot/db/1
+nav_order: 98
 ---
 
 ## 들어가기 앞서...

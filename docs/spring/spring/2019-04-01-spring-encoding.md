@@ -4,6 +4,7 @@ title: UTF-8 Encoding 하기
 parent: Spring
 grand_parent: Spring/SpringBoot
 permalink: /spring/spring/encoding/1
+nav_order: 97
 ---
 
 ## 소스 세팅 전에...

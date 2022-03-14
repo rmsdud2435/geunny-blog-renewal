@@ -4,6 +4,7 @@ title: Spring Exception Handling 하기
 parent: Spring
 grand_parent: Spring/SpringBoot
 permalink: /spring/spring/exception/1
+nav_order: 93
 ---
 
 ## Exception Handling에 들어가기 앞서...

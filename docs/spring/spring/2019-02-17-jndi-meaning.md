@@ -4,6 +4,7 @@ title: SQL 트랜잭션 처리
 parent: Spring
 grand_parent: Spring/SpringBoot
 permalink: /spring/spring/transaction/1
+nav_order: 98
 ---
 
 이전에 시스템 관리를 하는 도중 자바 소스상으로 트랜잭션 처리를 분명 설정하였음에도 불구하고 트랜잭션이 되지 않아 몇시간을 애먹은 적이 있다. 나같은 상황을 겪지 않기를 바라며 내가 했던 실수에 대해 정리해본다. 
