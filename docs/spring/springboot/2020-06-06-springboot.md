@@ -11,7 +11,7 @@ nav_order: 98
 
  앞의 "스프링부트 시작하기" 프로젝트에서 이어서 진행하며, DB 및 table 생성 등 일반적인 스프링 프로젝트와 겹치는 내용은 최대한 생략하고 다른점들에 대해서만 작성할 예정이며, 아래의 링크에 스터디용 프로젝트 올리니 참고바란다.  
   
- - https://github.com/rmsdud2435/미정
+ - https://github.com/rmsdud2435/Springboot-Sample
 
 ### 시작하기
 
