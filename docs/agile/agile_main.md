@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Agile 문화
-nav_order: 1
+title: Agile
+nav_order: 2
 has_children: true
 permalink: /agile
 ---
