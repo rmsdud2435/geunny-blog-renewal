@@ -2,8 +2,8 @@
 layout: default
 title: 공인IP와 도메인이란?
 parent: Network
-grand_parent: OS/Network
-permalink: /os_network/network/domain/1
+grand_parent: Infra
+permalink: /infra/network/domain/1
 nav_order: 98
 ---
 

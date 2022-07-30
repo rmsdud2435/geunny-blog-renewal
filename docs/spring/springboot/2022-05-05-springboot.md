@@ -4,7 +4,7 @@ title: "@Transaction 이해하기"
 parent: SpringBoot
 grand_parent: Spring/SpringBoot
 permalink: /spring/springboot/annotation/1
-nav_order: 95
+nav_order: 96
 ---
 
 ## 들어가기 앞서...

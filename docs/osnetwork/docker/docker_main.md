@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Network
+title: Docker
 has_children: true
 parent: Infra
-permalink: /infra/network/
+permalink: /infra/docker/
 ---
 
-# Network
+# Docker

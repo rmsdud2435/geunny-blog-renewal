@@ -2,8 +2,8 @@
 layout: default
 title: Telnet과 Ping의 차이
 parent: Network
-grand_parent: OS/Network
-permalink: /os_network/network/telnet/1
+grand_parent: Infra
+permalink: /infra/network/telnet/1
 nav_order: 99
 ---
 

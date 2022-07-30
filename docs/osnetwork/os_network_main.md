@@ -1,10 +1,10 @@
 ---
 layout: default
-title: OS/Network
+title: Infra
 nav_order: 10
 has_children: true
-permalink: /os_network/
+permalink: /infra/
 ---
 
-# OS/Network
+# Infra
 

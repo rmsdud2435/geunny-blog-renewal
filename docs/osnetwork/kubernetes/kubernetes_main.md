@@ -1,9 +1,10 @@
 ---
 layout: default
-title: Network
+title: Kubernetes
 has_children: true
 parent: Infra
-permalink: /infra/network/
+permalink: /infra/k8s/
 ---
 
-# Network
+# Kubernetes
+
