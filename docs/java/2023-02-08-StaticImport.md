@@ -36,7 +36,7 @@ JsonNode의 메소드를 본다면 값을 넣는 용도가 아닌 주고 받는 
 
 그래서 필자는 Json형태로 데이터를 보내고 싶을 때 ObjectNode를 통해 Json형식으로 만들 후 JsonNode로 변환 후 전달하는 형식의 코드를 자주 사용한다.
 
-## 참고한 블로그 및 정보
+### 참고한 블로그 및 정보
 
-* >import vs static import
-https://velog.io/@kasania/Java-Static-import%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B4%80%EC%B0%B0
+* import vs static import
+ > https://velog.io/@kasania/Java-Static-import%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B4%80%EC%B0%B0
