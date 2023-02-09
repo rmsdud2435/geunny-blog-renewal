@@ -50,7 +50,20 @@ double d = acos(PI) * E;
  물론 이 또한, 같은 JDK 버전에서 Enum이 추가된 이후로는 의미가 퇴색된 느낌이 있다
 
 
-## static import의 유의사항
+## static import 활용시 유의사항
+
+ 잘 활용만 한다면 소스를 깔끔하게 만들 수 있지만 반대로 가독성이 떨어질 수 있다. 예를 들어 두 패키지를 static import를 했지만 패키지에서 사용되는 함수가 같다면 어떤 패키지에서 부른 함수인지 헷갈릴 것이다.
+ ```java
+import static java.lang.Integer.*;
+import static java.lang.Double.*;
+...
+    
+int i = parseInt("1"); //parseInt라는 함수가 Integer.parseInt 인지, Double.patseInt인지 가독성이 떨어짐
+double d = parseDouble("5.0");
+if(i < MAX_VALUE){
+    System.out.println("less than MAX_VALUE");
+}
+ ```
 
 
 
