@@ -10,22 +10,27 @@ nav_order: 88
 
  이전에 카카오뱅크 과제를 풀면서 처음으로 소스상에서 static import를 봤다. 같은 소스 내에서도 어떤 package는 import를 하고 어떤 package는 static import를 하는데 왜 그런건지 알아보면서 정리하게 되었다.
 
-### 개념
+## static import를 쓰면 소스가 어떻게 변할까?
 
-개념적으로 따저본다면, ObjectNode는 JsonNode의 상위 개념이다.
+ static import를 쓰면 import된 패키지를 생략하여 작성할 수 있다.
+쉽게 예시를 들어보자면 Math 패키지에 선언된 함수 및 변수를 활용해야한다고 하면 static import를 하지 않은 소스는 아래와 같은 것이다.
+```java
+int i = Math.abs(-20);
+double d = Math.acos(Math.PI) * Math.E;
+```
 
-ObjectNode의 하위 객체로는 JsonNode 외에도 ArrayNode 등이 존재한다.
+만약 Math 패키지를 static import 한다면 소스는 아래처럼 바뀔 것 이다.
+```java
+import static java.lang.Math.*;
+    
+...
+    
+int i = abs(-20);
+double d = acos(PI) * E;
+```
 
-즉, JsonNode의 생김새를 보면 {}와 같이 생겼고 ArrayNode는 []와 같이 생겼으며,
 
-ObjectNode는 두 생김새를 다 받일 수 있다.
-
-다르게 말하자면 JsonNode를 ObjectNode로 일반적으로 캐스팅시에 에러가 날 확률이 적(없)지만,
-
-ObjectNode를 JsonNode로 캐스팅 시엔 에러가 날 수 있다.<--무조건 나는 것은 아니고...
-
-
-### 활용 예
+## static import를 왜 쓸까?
 
 
 JsonNode의 메소드를 본다면 값을 넣는 용도가 아닌 주고 받는 용도로 보인다.
@@ -35,6 +40,9 @@ JsonNode의 메소드를 본다면 값을 넣는 용도가 아닌 주고 받는 
 반면 ObjectNode는 그런 메소드뿐만 아니라 put이나 remove 등과 같이 값을 추가하거나 제거할 수 있는 메소드들이 존재한다.
 
 그래서 필자는 Json형태로 데이터를 보내고 싶을 때 ObjectNode를 통해 Json형식으로 만들 후 JsonNode로 변환 후 전달하는 형식의 코드를 자주 사용한다.
+
+## static import의 유의사항
+
 
 ### 참고한 블로그 및 정보
  * ##### import vs static import
