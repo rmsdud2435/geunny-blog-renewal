@@ -84,7 +84,7 @@ nav_order: 96
 
  @transactional 옵션에 대해서 https://devkingdom.tistory.com/287의 블로그에 적정한 예시와 사용 이유까지 친절히 설명되어 있어 해당 내용을 토대로 정리하였다.
 
- ### 1. __isolation__
+  1. ### __isolation__
 
     isolation 옵션을 트랜잭션에서 일관성없는 데이터를 어떻게 허용할지에 대한 허용 수준을 정할수 있는 옵션이다. 아래와 같은 형태로 설정을 해주면 된다.
     ```java
