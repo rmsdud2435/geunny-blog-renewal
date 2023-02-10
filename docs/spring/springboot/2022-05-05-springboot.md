@@ -66,19 +66,21 @@ nav_order: 96
  - 연산의 원자성이 보장되어, 연산이 도중에 실패할 경우 변경사항이 Commit되지 않는다.
  - 위의 속성이 보장되기 때문에, 해당 메서드를 실행하는 도중 메서드 값을 수정/삭제하려는 시도가 들어와도 값의 - 신뢰성이 보장된다. 또한, 연산 도중 오류가 발생해도 rollback해서 DB에 해당 결과가 반영되지 않도록 할 수 있다
 
-### @Transactional의 작동 원리와 흐름
 
-4)groupId를 설정한다.
-<figure>
-<img src="{{ "/media/img/Tools/Tool13.PNG" | absolute_url }}" />
-</figure>
+## @Transactional의 작동 원리와 흐름
 
-5)Artifact Id를 설정한다.
-<figure>
-<img src="{{ "/media/img/Tools/Tool14.PNG" | absolute_url }}" />
-</figure>
+ 그렇다면 @Transactional이 붙은 메서드를 호출할 경우, Spring Framework에서는 어떤 일이 벌어질까?
+ @Transactional이 클래스 내지 메서드게 붙을 때, Spring은 해당 메서드에 대한 프록시를 만든다. 프록시 패턴은 디자인 패턴 중 하나로, 어떤 코드를 감싸면서 추가적인 연산을 수행하도록 강제하는 방법이다. 트랜잭션의 경우, 트랜잭션의 시작과 연산 종료시의 커밋 과정이 필요하므로, 프록시를 생성해 해당 메서드의 앞뒤에 트랜잭션의 시작과 끝을 추가하는 것이다. 이러한 로직은 AOP에 바탕을 두고 설계되었기 때문에, 이후 설명에서 해당 프록시는 트랜잭션 AOP로 명칭하겠다.
 
-### @Transactional 옵션 정리
+ 또한, 스프링 컨테이너는 트랜잭션 범위의 영속성 컨텍스트 전략을 기본으로 사용한다. 서비스 클래스에서 @Transactional을 사용할 경우, 해당 코드 내의 메서드를 호출할 때 영속성 컨텍스트가 생긴다는 뜻이다. 영속성 컨텍스트는 트랜잭션 AOP가 트랜잭션을 시작할 때 생겨나고, 메서드가 종료되어 트랜잭션 AOP가 트랜잭션을 커밋할 경우 영속성 컨텍스트가 flush되면서 해당 내용이 반영된다. 이후 영속성 컨텍스트 역시 종료되는 것이다.
+ <figure>
+ <img src="{{ "/media/img/Spring/transaction1.png" | absolute_url }}" />
+ <figcaption>츨처: https://kafcamus.tistory.com/30 </figcaption>
+ </figure>
+ 이러한 방식으로 영속성 컨텍스트를 관리해 주기 때문에, @Transactional을 쓸 경우 트랜잭션의 원칙을 정확히 지킬 수 있다. 또한, 아래의 원칙 역시 유의해야 한다. 만약 같은 트랜잭션 내에서 여러 EntityManager를 쓰더라도, 이는 같은 영속성 컨텍스트를 사용한다. 같은 EntityManager를 쓰더라도, 트랜잭션이 다르면 다른 영속성 컨텍스트를 사용한다.(아마, 다른 JDBC를 쓰더라도 트랜잭션단위로 묶인다는 의미인듯)
+
+
+## @Transactional 옵션 정리
 
 6)패키징 타입을 설정한다.(Eclipse에서 WAS로 많이 export 해본 경험이 있어 JAR를 선택했음. JAR의 경우 WAS를 가동하는데 필요한 라이브러리를 포함하여 패키징 됨)
 <figure>
