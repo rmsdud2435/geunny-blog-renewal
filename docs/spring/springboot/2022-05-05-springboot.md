@@ -9,12 +9,9 @@ nav_order: 96
 
 ## 들어가기 앞서...
 
-이제 본격적으로 VSCode를 이용하여 Spring Boot + Gradle + JPA를 활용한 프로젝트를 설정할 것이다. 이번 포스트 이후로 해당 프로젝트는 Spring 카테고리에서 정리할 예정이다.
+카카오뱅크 과제를 풀면서 @transaction을 처음 접하게 되었다. 내가 업무적으로 맡은 소스들에서는 만약 트랜잭션 처리가 필요하다면 보통 XML파일에서 JDBC설정에서 transaction 허용 설정 후 Sqlsession 클래스를 활용하여 처리하였다. 과제에서 어노테이션과 어노테이션의 옵션을 활용하여 보다 편하게 처리하는 것을 보고 @transaction 활용법을 공부해보자는 생각이 들었다.
 
-이전 포스팅
-VSCode 시작하기 - https://rmsdud2435.github.io/geunny-blog/blog/tools/Tools_20210424
-
-### What is Gradle?
+### 트랜잭션이란?
 
 설치하는 것은 크게 어렵지 않았다. 공식 홈페이지(https://code.visualstudio.com/)에 가서 다운을 받아면 된다.
 <figure>
@@ -22,7 +19,7 @@ VSCode 시작하기 - https://rmsdud2435.github.io/geunny-blog/blog/tools/Tools_
 <figcaption>출처 : https://lktprogrammer.tistory.com/71 </figcaption>
 </figure>
 
-### VSCode에서 gradle + springboot 실행하기
+### @Transactional 어노테이션 활용예시
 
 1)VSCode에서 단축키 F1을 누른 후 Spring Initializr: Create a Gradle Project을 입력한다.
 <figure>
@@ -36,6 +33,8 @@ VSCode 시작하기 - https://rmsdud2435.github.io/geunny-blog/blog/tools/Tools_
 
 3)프로젝트 언어를 선택하라고 나오면 Java를 선택(이미 이전 프로젝트를 진행할때 java로 설정하여 해당 단계 skip됨)
 
+### @Transactional의 작동 원리와 흐름
+
 4)groupId를 설정한다.
 <figure>
 <img src="{{ "/media/img/Tools/Tool13.PNG" | absolute_url }}" />
@@ -45,6 +44,8 @@ VSCode 시작하기 - https://rmsdud2435.github.io/geunny-blog/blog/tools/Tools_
 <figure>
 <img src="{{ "/media/img/Tools/Tool14.PNG" | absolute_url }}" />
 </figure>
+
+### @Transactional 옵션 정리
 
 6)패키징 타입을 설정한다.(Eclipse에서 WAS로 많이 export 해본 경험이 있어 JAR를 선택했음. JAR의 경우 WAS를 가동하는데 필요한 라이브러리를 포함하여 패키징 됨)
 <figure>
@@ -82,9 +83,7 @@ VSCode 시작하기 - https://rmsdud2435.github.io/geunny-blog/blog/tools/Tools_
 <img src="{{ "/media/img/Tools/Tool21.PNG" | absolute_url }}" />
 </figure>
 
+
 ## 참고 자료 및 사이트
-- https://gradle.org/
-- https://maven.apache.org/
-- http://egloos.zum.com/kwon37xi/v/4747016
-- https://doit1.tistory.com/32
-- https://hyojun123.github.io/2019/04/18/gradleAndMaven/
+- transaction 정의 정리: https://kafcamus.tistory.com/30
+- transaction anotation 옵션 정리: 
