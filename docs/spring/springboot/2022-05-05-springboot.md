@@ -84,7 +84,7 @@ nav_order: 96
 
  @transactional 옵션에 대해서 https://devkingdom.tistory.com/287의 블로그에 적정한 예시와 사용 이유까지 친절히 설명되어 있어 해당 내용을 토대로 정리하였다.
 
-  1. __isolation__
+ 1. __isolation__
 
     isolation 옵션을 트랜잭션에서 일관성없는 데이터를 어떻게 허용할지에 대한 허용 수준을 정할수 있는 옵션이다. 아래와 같은 형태로 설정을 해주면 된다.
     ```java
@@ -133,7 +133,7 @@ nav_order: 96
     설명만 보기에는 SERIALIZABLE 속성을 써야하겠지만 이렇게 격리수준이 높아지면 성능저하의 우려가 있으니 상황에 따라 적절한 속성을 사용해줘야한다.
 
 
- ### 2. __propagation__
+ 2. __propagation__
 
     propagation 옵션은 트랜잭션이 동작할 때 다른 트랜잭션이 호출되면 어떻게 처리할지를 정하는 옵션이다.
     즉 피호출 트랜잭션에서 호출한 트랜잭션을 그대로 사용할지 새로 생성할지를 정하는 옵션이라고 생각하면된다.
@@ -201,7 +201,7 @@ nav_order: 96
     그리고 반대로 특정 예외 발생시 Rollback 처리되지 않게 하는 옵션이 noRollbackFor 속성이다.
 
 
- ### 4. __timeout__
+ 4. __timeout__
     지정한 시간 내에 메서드 수행이 완료되지 않으면 rollback 하게 하는 옵션이다. -1 이 default 값이고 이는 no timeout을 의미한다.
     사용 방법은 아래와 같다.
     ```java
@@ -215,7 +215,7 @@ nav_order: 96
     ```
  
 
- ### 5. __readOnly__
+ 5. __readOnly__
     트랜잭션을 읽기전용으로 설정하는 옵션이다. true로 설정하면 insert, update, delete 실행할 때 예외가 발생한다.
 
     default 값은 false이다.
@@ -232,7 +232,7 @@ nav_order: 96
     보통 get 이나 find 같은 이름의 메서드 앞에 이런식으로 설정이 되어있다. 성능을 최적화 하기위해서도 사용할 수 있다고하지만 나는 보통 특정 트랜잭션 작업에서 누군가 쓰기 작업을 하는 걸 의도적으로 방지하기 위해 사용해왔다.
 
 
-## 참고 자료 및 사이트
+### 참고 자료 및 사이트
  transaction 정의 정리
  - https://kafcamus.tistory.com/30
  transaction anotation 옵션 정리
