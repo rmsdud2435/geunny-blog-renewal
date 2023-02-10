@@ -202,6 +202,7 @@ nav_order: 96
 
 
  4. __timeout__
+ 
     지정한 시간 내에 메서드 수행이 완료되지 않으면 rollback 하게 하는 옵션이다. -1 이 default 값이고 이는 no timeout을 의미한다.
     사용 방법은 아래와 같다.
     ```java
@@ -216,6 +217,7 @@ nav_order: 96
  
 
  5. __readOnly__
+
     트랜잭션을 읽기전용으로 설정하는 옵션이다. true로 설정하면 insert, update, delete 실행할 때 예외가 발생한다.
 
     default 값은 false이다.
