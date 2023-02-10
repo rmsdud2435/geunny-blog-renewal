@@ -202,7 +202,7 @@ nav_order: 96
 
 
  4. __timeout__
- 
+
     지정한 시간 내에 메서드 수행이 완료되지 않으면 rollback 하게 하는 옵션이다. -1 이 default 값이고 이는 no timeout을 의미한다.
     사용 방법은 아래와 같다.
     ```java
@@ -235,7 +235,6 @@ nav_order: 96
 
 
 ### 참고 자료 및 사이트
- transaction 정의 정리
- - https://kafcamus.tistory.com/30
- transaction anotation 옵션 정리
- - https://devkingdom.tistory.com/287 
+ 
+ - transaction 정의 정리: https://kafcamus.tistory.com/30
+ - transaction anotation 옵션 정리: https://devkingdom.tistory.com/287 
