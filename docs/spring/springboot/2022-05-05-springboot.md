@@ -84,7 +84,7 @@ nav_order: 96
 
  @transactional 옵션에 대해서 https://devkingdom.tistory.com/287의 블로그에 적정한 예시와 사용 이유까지 친절히 설명되어 있어 해당 내용을 토대로 정리하였다.
 
- 1. __isolation__
+ ### 1. __isolation__
 
     isolation 옵션을 트랜잭션에서 일관성없는 데이터를 어떻게 허용할지에 대한 허용 수준을 정할수 있는 옵션이다. 아래와 같은 형태로 설정을 해주면 된다.
     ```java
@@ -133,7 +133,7 @@ nav_order: 96
     설명만 보기에는 SERIALIZABLE 속성을 써야하겠지만 이렇게 격리수준이 높아지면 성능저하의 우려가 있으니 상황에 따라 적절한 속성을 사용해줘야한다.
 
 
- 2. __propagation__
+ ### 2. __propagation__
 
     propagation 옵션은 트랜잭션이 동작할 때 다른 트랜잭션이 호출되면 어떻게 처리할지를 정하는 옵션이다.
     즉 피호출 트랜잭션에서 호출한 트랜잭션을 그대로 사용할지 새로 생성할지를 정하는 옵션이라고 생각하면된다.
@@ -180,7 +180,7 @@ nav_order: 96
     이미 진행중인 트랜잭션이 있으면 중첩된 트랜잭션을 실행하고 없으며 REQUIRED와 동일하게 새로운 트랜잭션을 생성하여 진행한다. 중첩 트랜잭션을 말 그대로 트랜잭션안에 트랜잭션을 만드는 것이다. 트랜잭션안의 트랜잭션이 커밋되거나 롤백되어도, 바깥의 트랜잭션에게 영향을 주지 않는다.
 
 
- 3. __noRollbackFor, .rollbackFor__
+ ### 3. __noRollbackFor, .rollbackFor__
 
     특정 예외 발생 시, rollback을 하거나 하지않게 하는 옵션이다.
     사용방법은 아래와 같다.
@@ -196,52 +196,43 @@ nav_order: 96
     해당 속성을 보기전에 우선 Exception에 대해 조금 알 필요가 있겠다.
     https://devkingdom.tistory.com/283
 
- 
-    [Java] Java Exception 처리하기
+    선언적 트랜잭션에서는 런타임 예외가 발생하면 롤백을 하도록한다. 반면 체크 익셉션이 발생하면 커밋을 한다. 스프링에서는 Data Acces 기술의 예외가 런터임 예외로 전환되어 던져지기 때문에 런타임 예외만 롤백대상이 되지만 기본동작을 바꿀수 가 있는데 그 옵션이 바로 rollbackFor 속성이다.
 
-    자바에서 에러나 예외 클래스의 계층 구조를 그려보면 위에 그려놓은 정보와 같다. 상위에 있는 Throwable 클래스를 기준으로 하여 Error 와 Exception 으로 나눠진다. Exception 은 또 컴파일 단계에서 발
-
-    devkingdom.tistory.com
-
-선언적 트랜잭션에서는 런타임 예외가 발생하면 롤백을 하도록한다. 반면 체크 익셉션이 발생하면 커밋을 한다. 스프링에서는 Data Acces 기술의 예외가 런터임 예외로 전환되어 던져지기 때문에 런타임 예외만 롤백대상이 되지만 기본동작을 바꿀수 가 있는데 그 옵션이 바로 rollbackFor 속성이다.
-
-그리고 반대로 특정 예외 발생시 Rollback 처리되지 않게 하는 옵션이 noRollbackFor 속성이다.
+    그리고 반대로 특정 예외 발생시 Rollback 처리되지 않게 하는 옵션이 noRollbackFor 속성이다.
 
 
-4. timeout
-지정한 시간 내에 메서드 수행이 완료되지 않으면 rollback 하게 하는 옵션이다. -1 이 default 값이고 이는 no timeout을 의미한다.
-사용 방법은 아래와 같다.
-
-@Service
-public class MemberService { 
-``` 
-	@Transactional(timeout=10)
-    public void addMember(MemberDto memberDto) throws Exception { 
-    	// 멤버 삽입 로직 구현 
-    } 
-```
-}
+ ### 4. __timeout__
+    지정한 시간 내에 메서드 수행이 완료되지 않으면 rollback 하게 하는 옵션이다. -1 이 default 값이고 이는 no timeout을 의미한다.
+    사용 방법은 아래와 같다.
+    ```java
+    @Service
+    public class MemberService { 
+        @Transactional(timeout=10)
+        public void addMember(MemberDto memberDto) throws Exception { 
+            // 멤버 삽입 로직 구현 
+        } 
+    }
+    ```
  
 
-5. readOnly
-트랜잭션을 읽기전용으로 설정하는 옵션이다. true로 설정하면 insert, update, delete 실행할 때 예외가 발생한다.
-default 값은 false이다.
-사용방법은 아래와 같다.
+ ### 5. __readOnly__
+    트랜잭션을 읽기전용으로 설정하는 옵션이다. true로 설정하면 insert, update, delete 실행할 때 예외가 발생한다.
 
-@Service
-public class MemberService {
-``` 
-	@Transactional(readOnly =true)
-    public List<Member> findAllMember() throws Exception { 
-    	// 전체 멤버 검색 로직 구현 
-      } 
-``` 
-}
+    default 값은 false이다.
+    사용방법은 아래와 같다.
+    ```java
+    @Service
+    public class MemberService {
+        @Transactional(readOnly =true)
+        public List<Member> findAllMember() throws Exception { 
+            // 전체 멤버 검색 로직 구현 
+        } 
+    }
+    ```
     보통 get 이나 find 같은 이름의 메서드 앞에 이런식으로 설정이 되어있다. 성능을 최적화 하기위해서도 사용할 수 있다고하지만 나는 보통 특정 트랜잭션 작업에서 누군가 쓰기 작업을 하는 걸 의도적으로 방지하기 위해 사용해왔다.
 
 
-
-### 참고 자료 및 사이트
+## 참고 자료 및 사이트
  transaction 정의 정리
  - https://kafcamus.tistory.com/30
  transaction anotation 옵션 정리
