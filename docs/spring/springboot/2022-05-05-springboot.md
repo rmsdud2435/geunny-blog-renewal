@@ -7,9 +7,10 @@ permalink: /spring/springboot/annotation/1
 nav_order: 96
 ---
 
-## 들어가기 앞서...  
-  
-카카오뱅크 과제를 풀면서 @transaction을 처음 접하게 되었다. 내가 업무적으로 맡은 소스들에서는 만약 트랜잭션 처리가 필요하다면 보통 XML파일에서 JDBC설정에서 transaction 허용 설정 후 Sqlsession 클래스를 활용하여 처리하였다. 과제에서 어노테이션과 어노테이션의 옵션을 활용하여 보다 편하게 처리하는 것을 보고 @transaction 활용법을 공부해보자는 생각이 들었다.
+## 들어가기 앞서...
+
+ 카카오뱅크 과제를 풀면서 @transaction을 처음 접하게 되었다. 내가 업무적으로 맡은 소스들에서는 만약 트랜잭션 처리가 필요하다면 보통 XML파일에서 JDBC설정에서 transaction 허용 설정 후 Sqlsession 클래스를 활용하여 처리하였다. 과제에서 어노테이션과 어노테이션의 옵션을 활용하여 보다 편하게 처리하는 것을 보고 @transaction 활용법을 공부해보자는 생각이 들었다.
+
 
 ## 트랜잭션이란?
 
@@ -32,20 +33,38 @@ nav_order: 96
  이며, 이를 DB특성인 ACID(원자성, 일관성, 고립성, 지속성)과 연관된다.
 
 
+## @Transactional 어노테이션 활용예시
 
-### @Transactional 어노테이션 활용예시
+ @Transactional은 클래스나 메서드에 붙여줄 경우, 해당 범위 내 메서드가 트랜잭션이 되도록 보장해준다. 선언적 트랜잭션이라고도 하는데, 직접 객체를 만들 필요 없이 선언만으로도 관리를 용이하게 해주기 때문이다. 특히나 SpringBoot에서는 선언적 트랜잭션에 필요한 여러 설정이 이미 되어있는 탓에, 더 쉽게 사용할 수 있다. 
+ 
+ 예시로 아래 코드를 보자. 도서를 Repository를 통해 가져오는 서비스 레이어의 코드이다.
+```java
+    @RequiredArgsConstructor
+    @Service
+    public class BookService {
+        private final BookRepository bookRepository;
 
-1)VSCode에서 단축키 F1을 누른 후 Spring Initializr: Create a Gradle Project을 입력한다.
-<figure>
-<img src="{{ "/media/img/Tools/Tool11.png" | absolute_url }}" />
-</figure>
+        @Transactional(readOnly = true)
+        public List<BookResponseServiceDto> getBooks() {
+            return bookRepository.findAll()
+                    .stream()
+                    .map(BookResponseServiceDto::new)
+                    .collect(Collectors.toList());
+        }
 
-2)Spring Boot 버전을 선택하라고 나오는데 본인이 생각하는 버전을 선택한다.(나는 2.4.5로 진행하였다)
-<figure>
-<img src="{{ "/media/img/Tools/Tool12.PNG" | absolute_url }}" />
-</figure>
+        @Transactional(readOnly = true)
+        public BookResponseServiceDto getBook(Long bookId) {
+            final Book book = bookRepository.findById(bookId)
+                    .orElseThrow(() -> new BookNotFoundException(bookId));
 
-3)프로젝트 언어를 선택하라고 나오면 Java를 선택(이미 이전 프로젝트를 진행할때 java로 설정하여 해당 단계 skip됨)
+            return new BookResponseServiceDto(book);
+        }
+    }
+```
+ @Transactional 어노테이션을 getBooks()와 getBook() 메서드에 작성해 주었다. 그 결과로, 만약 getBook() 메서드가 실행될 경우 해당 메서드는 아래의 속성을 가진다.
+ - 연산이 고립되어, 다른 연산과의 혼선으로 인해 잘못된 값을 가져오는 경우가 방지된다.
+ - 연산의 원자성이 보장되어, 연산이 도중에 실패할 경우 변경사항이 Commit되지 않는다.
+ - 위의 속성이 보장되기 때문에, 해당 메서드를 실행하는 도중 메서드 값을 수정/삭제하려는 시도가 들어와도 값의 - 신뢰성이 보장된다. 또한, 연산 도중 오류가 발생해도 rollback해서 DB에 해당 결과가 반영되지 않도록 할 수 있다
 
 ### @Transactional의 작동 원리와 흐름
 
