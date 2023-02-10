@@ -98,7 +98,7 @@ nav_order: 96
     1) DEFAULT 
 
     기본적인 격리 수준이고, 기존 DB의 Isolation Level을 따르게 된다.
-    
+
 
     2) READ_UNCOMMITED (Level 0)
     
