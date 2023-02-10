@@ -7,11 +7,11 @@ permalink: /spring/springboot/annotation/1
 nav_order: 96
 ---
 
-## 들어가기 앞서...
+## 들어가기 앞서...  
 
 카카오뱅크 과제를 풀면서 @transaction을 처음 접하게 되었다. 내가 업무적으로 맡은 소스들에서는 만약 트랜잭션 처리가 필요하다면 보통 XML파일에서 JDBC설정에서 transaction 허용 설정 후 Sqlsession 클래스를 활용하여 처리하였다. 과제에서 어노테이션과 어노테이션의 옵션을 활용하여 보다 편하게 처리하는 것을 보고 @transaction 활용법을 공부해보자는 생각이 들었다.
 
-### 트랜잭션이란?
+## 트랜잭션이란?
 
  https://kafcamus.tistory.com/30의 블로그에 DB에 대해 전혀 모르더라도 이해할 수 있게 쉽게 설명을 해놓았다. 내용을 참고하자면,
 
