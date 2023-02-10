@@ -95,10 +95,13 @@ nav_order: 96
         } 
     }
     ```
-    1) DEFAULT
+    1) DEFAULT 
+
     기본적인 격리 수준이고, 기존 DB의 Isolation Level을 따르게 된다.
+    
 
     2) READ_UNCOMMITED (Level 0)
+    
     커밋되지 않는 데이터에 대한 읽기를 허용하는 방식이다.
     이렇게 설정하면 Dirty Read라는 문제가 발생할 수 있다.
 
@@ -127,7 +130,7 @@ nav_order: 96
     설명만 보기에는 SERIALIZABLE 속성을 써야하겠지만 이렇게 격리수준이 높아지면 성능저하의 우려가 있으니 상황에 따라 적절한 속성을 사용해줘야한다.
 
 
- 2.propagation
+ 2. propagation
     propagation 옵션은 트랜잭션이 동작할 때 다른 트랜잭션이 호출되면 어떻게 처리할지를 정하는 옵션이다.
     즉 피호출 트랜잭션에서 호출한 트랜잭션을 그대로 사용할지 새로 생성할지를 정하는 옵션이라고 생각하면된다.
     설정방법은 아래와 같이 적용해주면 된다.
@@ -164,7 +167,7 @@ public class MemberService {
     7) NESTED
         이미 진행중인 트랜잭션이 있으면 중첩된 트랜잭션을 실행하고 없으며 REQUIRED와 동일하게 새로운 트랜잭션을 생성하여 진행한다. 중첩 트랜잭션을 말 그대로 트랜잭션안에 트랜잭션을 만드는 것이다. 트랜잭션안의 트랜잭션이 커밋되거나 롤백되어도, 바깥의 트랜잭션에게 영향을 주지 않는다.
 
- 3.noRollbackFor, .rollbackFor
+ 3. noRollbackFor, .rollbackFor
     특정 예외 발생 시, rollback을 하거나 하지않게 하는 옵션이다.
     사용방법은 아래와 같다.
     ```java
