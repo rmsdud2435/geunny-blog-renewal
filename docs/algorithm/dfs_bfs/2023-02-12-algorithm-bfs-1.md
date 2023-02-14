@@ -82,7 +82,7 @@ nav_order: 98
 ## 문제풀이
 
 ### 본인답안
- 
+
 ```java
 import java.util.*;
 
@@ -103,7 +103,6 @@ public class 게임_맵_최단거리 {
     private int[][] currentMap;
     private int sourceX;
     private int sourceY;
-
     /* 오답에 사용한 전역변수 */
     private int leastVal = -1;
     private int[][] originalMaps;
@@ -115,7 +114,6 @@ public class 게임_맵_최단거리 {
         //XY의 최대 좌표
         sourceX = maps[0].length;
         sourceY = maps.length;
-
         //방문여부 저장하는 배열
         visitCheckArr = new boolean[sourceY][sourceX];
         currentMap = new int[sourceY][sourceX];
