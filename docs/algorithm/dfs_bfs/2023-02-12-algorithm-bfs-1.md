@@ -87,7 +87,7 @@ nav_order: 98
 import java.util.*;
     
 public class 게임_맵_최단거리 {
-        
+    
     public static void main(String[] args) {
         // numbers			target	return
         // [1, 1, 1, 1, 1]	3		5
@@ -98,7 +98,7 @@ public class 게임_맵_최단거리 {
         int[][] maps2 = {{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,0},{0,0,0,0,1}};
         System.out.println( obj.solution(maps2));
     }
-        
+    
     private boolean[][] visitCheckArr;
     private int[][] currentMap;
 
@@ -108,7 +108,7 @@ public class 게임_맵_최단거리 {
     /* 오답에 사용한 전역변수 */
     private int leastVal = -1;
     private int[][] originalMaps;
-        
+    
     /* 최종 답변 */
     public int solution(int[][] maps) {
         int answer = 0;
@@ -171,3 +171,4 @@ public class 게임_맵_최단거리 {
     }
 }
 ```
+
