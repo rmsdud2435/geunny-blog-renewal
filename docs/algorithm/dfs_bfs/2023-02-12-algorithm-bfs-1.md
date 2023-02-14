@@ -85,13 +85,15 @@ nav_order: 98
 
 ```java
 import java.util.*;
-
+    
 public class 게임_맵_최단거리 {
     
     private boolean[][] visitCheckArr;
     private int[][] currentMap;
+
     private int sourceX;
     private int sourceY;
+
     /* 오답에 사용한 전역변수 */
     private int leastVal = -1;
     private int[][] originalMaps;
@@ -103,6 +105,7 @@ public class 게임_맵_최단거리 {
         //XY의 최대 좌표
         sourceX = maps[0].length;
         sourceY = maps.length;
+
         //방문여부 저장하는 배열
         visitCheckArr = new boolean[sourceY][sourceX];
         currentMap = new int[sourceY][sourceX];
@@ -118,7 +121,42 @@ public class 게임_맵_최단거리 {
         }else{
             answer = -1;
         }
+
         return answer;
+    }
+
+    public boolean bfs(int x, int y){
+        Queue<int[]> queue = new LinkedList<int[]>();
+        int[] startNode = {x,y,1};
+        queue.add(startNode);
+        while(!queue.isEmpty()){
+            int[] currentNode = queue.poll();
+
+            int currentX = currentNode[0];
+            int currentY = currentNode[1];
+            int currentDepth = currentNode[2];
+
+            visitCheckArr[currentY][currentX] = true;
+            currentMap[currentY][currentX] = currentDepth;
+
+            int[] upXY = {currentX, currentY-1,currentDepth+1};
+            int[] downXY = {currentX, currentY+1, currentDepth+1};
+            int[] rightXY = {currentX+1, currentY,currentDepth+1};
+            int[] leftXY = {currentX-1, currentY, currentDepth+1};
+
+            int[][] nextNodeArr = {upXY, downXY, rightXY, leftXY};
+            for(int[] nextNode : nextNodeArr){
+                if(nextNode[0] >= sourceX || nextNode[0] < 0 || nextNode[1] >= sourceY || nextNode[1] < 0){
+                    continue;
+                }else if(visitCheckArr[nextNode[1]][nextNode[0]] || currentMap[nextNode[1]][nextNode[0]] == 0){
+                    continue;
+                }else if(currentMap[nextNode[1]][nextNode[0]] > nextNode[2] || currentMa[nextNode[1]][nextNode[0]] == 1 ){
+                    currentMap[nextNode[1]][nextNode[0]] = nextNode[2];
+                    queue.add(nextNode);
+                }
+            }
+        }
+        return visitCheckArr[sourceY-1][sourceX-1];
     }
 }
 ```
