@@ -49,7 +49,28 @@ nav_order: 98
 ## 입출력 예
 
 ```java
-//maps															answer
+//maps				answer
 //[[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,1],[0,0,0,0,1]]	11
 //[[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,0],[0,0,0,0,1]]	-1
 ```
+
+### 입출력 예 설명
+ 입출력 예 #1
+ 주어진 데이터는 다음과 같습니다.
+ <figure>
+ <img src="{{ "/media/img/algo/bfs_algo_1_05.png" | absolute_url }}" />
+ <figcaption>츨처: https://school.programmers.co.kr/learn/courses/30/lessons/1844 </figcaption>
+ </figure>
+ 캐릭터가 적 팀의 진영까지 이동하는 가장 빠른 길은 다음 그림과 같습니다.
+ <figure>
+ <img src="{{ "/media/img/algo/bfs_algo_1_06.png" | absolute_url }}" />
+ <figcaption>츨처: https://school.programmers.co.kr/learn/courses/30/lessons/1844 </figcaption>
+ </figure>
+ 따라서 총 11칸을 캐릭터가 지나갔으므로 11을 return 하면 됩니다.
+
+ 입출력 예 #2 
+ 문제의 예시와 같으며, 상대 팀 진영에 도달할 방법이 없습니다. 따라서 -1을 return 합니다.
+
+
+## 출처
+ - 프로그래머스: https://school.programmers.co.kr/learn/courses/30/lessons/1844
