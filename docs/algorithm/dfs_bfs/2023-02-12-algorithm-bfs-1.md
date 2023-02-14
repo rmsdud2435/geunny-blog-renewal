@@ -49,9 +49,11 @@ nav_order: 98
 ## 입출력 예
 
 ```java
+
 //maps															answer
 //[[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,1],[0,0,0,0,1]]	11
 //[[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,0],[0,0,0,0,1]]	-1
+
 ```
 
 
@@ -80,100 +82,104 @@ nav_order: 98
 
 ### 본인답안
 
- ```java
- import java.util.*;
- 
- public class 게임_맵_최단거리 {
-	
-    public static void main(String[] args) {
-    	// numbers			target	return
-    	// [1, 1, 1, 1, 1]	3		5
-    	// [4, 1, 2, 1]		4		2
-    	게임_맵_최단거리 obj = new 게임_맵_최단거리();
-		int[][] maps = {{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,1},{0,0,0,0,1}};
-		System.out.println( obj.solution(maps));
-		int[][] maps2 = {{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,0},{0,0,0,0,1}};
-		System.out.println( obj.solution(maps2));
-	}
+```java
+
+    import java.util.*;
     
-    private boolean[][] visitCheckArr;
-    private int[][] currentMap;
-
-    private int sourceX;
-    private int sourceY;
-
-    /* 오답에 사용한 전역변수 */
-    private int leastVal = -1;
-    private int[][] originalMaps;
-    
-    /* 최종 답변 */
-    public int solution(int[][] maps) {
-        int answer = 0;
-
-        //XY의 최대 좌표
-        sourceX = maps[0].length;
-        sourceY = maps.length;
-
-        //방문여부 저장하는 배열
-        visitCheckArr = new boolean[sourceY][sourceX];
-        currentMap = new int[sourceY][sourceX];
-        for(int i = 0; i < sourceY; i++){
-            for(int j = 0; j < sourceX; j++){
-                visitCheckArr[i][j] = false;
-                currentMap[i][j] = maps[i][j];
-            }
+    public class 게임_맵_최단거리 {
+        
+        public static void main(String[] args) {
+            // numbers			target	return
+            // [1, 1, 1, 1, 1]	3		5
+            // [4, 1, 2, 1]		4		2
+            게임_맵_최단거리 obj = new 게임_맵_최단거리();
+            int[][] maps = {{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,1},{0,0,0,0,1}};
+            System.out.println( obj.solution(maps));
+            int[][] maps2 = {{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,0},{0,0,0,0,1}};
+            System.out.println( obj.solution(maps2));
         }
         
-        if(bfs(0, 0)){
-            answer =  currentMap[sourceY-1][sourceX-1];
-        }else{
-            answer = -1;
-        }
+        private boolean[][] visitCheckArr;
+        private int[][] currentMap;
 
-        return answer;
-    }
+        private int sourceX;
+        private int sourceY;
 
-    public boolean bfs(int x, int y){
-        Queue<int[]> queue = new LinkedList<int[]>();
-        int[] startNode = {x,y,1};
-        queue.add(startNode);
-        while(!queue.isEmpty()){
-            int[] currentNode = queue.poll();
+        /* 오답에 사용한 전역변수 */
+        private int leastVal = -1;
+        private int[][] originalMaps;
+        
+        /* 최종 답변 */
+        public int solution(int[][] maps) {
+            int answer = 0;
 
-            int currentX = currentNode[0];
-            int currentY = currentNode[1];
-            int currentDepth = currentNode[2];
+            //XY의 최대 좌표
+            sourceX = maps[0].length;
+            sourceY = maps.length;
 
-            visitCheckArr[currentY][currentX] = true;
-            currentMap[currentY][currentX] = currentDepth;
-
-            int[] upXY = {currentX, currentY-1,currentDepth+1};
-            int[] downXY = {currentX, currentY+1, currentDepth+1};
-            int[] rightXY = {currentX+1, currentY,currentDepth+1};
-            int[] leftXY = {currentX-1, currentY, currentDepth+1};
-
-            int[][] nextNodeArr = {upXY, downXY, rightXY, leftXY};
-            for(int[] nextNode : nextNodeArr){
-                if(nextNode[0] >= sourceX || nextNode[0] < 0 
-                  || nextNode[1] >= sourceY || nextNode[1] < 0){
-                    continue;
-                }else if(visitCheckArr[nextNode[1]][nextNode[0]] ||
-                         currentMap[nextNode[1]][nextNode[0]] == 0){ 
-                    continue;
-                }else if(currentMap[nextNode[1]][nextNode[0]] > nextNode[2] || currentMap[nextNode[1]][nextNode[0]] == 1 ){
-                    currentMap[nextNode[1]][nextNode[0]] = nextNode[2];
-                    queue.add(nextNode);
+            //방문여부 저장하는 배열
+            visitCheckArr = new boolean[sourceY][sourceX];
+            currentMap = new int[sourceY][sourceX];
+            for(int i = 0; i < sourceY; i++){
+                for(int j = 0; j < sourceX; j++){
+                    visitCheckArr[i][j] = false;
+                    currentMap[i][j] = maps[i][j];
                 }
             }
+            
+            if(bfs(0, 0)){
+                answer =  currentMap[sourceY-1][sourceX-1];
+            }else{
+                answer = -1;
+            }
+
+            return answer;
         }
-        return visitCheckArr[sourceY-1][sourceX-1];
+
+        public boolean bfs(int x, int y){
+            Queue<int[]> queue = new LinkedList<int[]>();
+            int[] startNode = {x,y,1};
+            queue.add(startNode);
+            while(!queue.isEmpty()){
+                int[] currentNode = queue.poll();
+
+                int currentX = currentNode[0];
+                int currentY = currentNode[1];
+                int currentDepth = currentNode[2];
+
+                visitCheckArr[currentY][currentX] = true;
+                currentMap[currentY][currentX] = currentDepth;
+
+                int[] upXY = {currentX, currentY-1,currentDepth+1};
+                int[] downXY = {currentX, currentY+1, currentDepth+1};
+                int[] rightXY = {currentX+1, currentY,currentDepth+1};
+                int[] leftXY = {currentX-1, currentY, currentDepth+1};
+
+                int[][] nextNodeArr = {upXY, downXY, rightXY, leftXY};
+                for(int[] nextNode : nextNodeArr){
+                    if(nextNode[0] >= sourceX || nextNode[0] < 0 
+                    || nextNode[1] >= sourceY || nextNode[1] < 0){
+                        continue;
+                    }else if(visitCheckArr[nextNode[1]][nextNode[0]] ||
+                            currentMap[nextNode[1]][nextNode[0]] == 0){ 
+                        continue;
+                    }else if(currentMap[nextNode[1]][nextNode[0]] > nextNode[2] || currentMap[nextNode[1]][nextNode[0]] == 1 ){
+                        currentMap[nextNode[1]][nextNode[0]] = nextNode[2];
+                        queue.add(nextNode);
+                    }
+                }
+            }
+            return visitCheckArr[sourceY-1][sourceX-1];
+        }
     }
+
 ```
 
 
 ### dfs로 풀어서 답은 맞았지만 효율성에서 틀린 답안
 
-```java
+    ```java
+
     public int dfs(int[][] maps, int x, int y, int moveCount){
         if(y == maps.length-1 && x == maps[y].length-1){
             return moveCount;
@@ -229,12 +235,14 @@ nav_order: 98
             return leastVal;
         }
     }
-```
+
+    ```
 
 
 ### 점수가 높았던 답안
 
-```java
+    ```java
+
     public static int answer(int[][] maps) {
         int X = maps[0].length;
         int Y = maps.length;
@@ -278,7 +286,8 @@ nav_order: 98
         }
         return -1;
     }
-```
+
+    ```
 
 
 ## 알게된 점 및 아쉬운 점
