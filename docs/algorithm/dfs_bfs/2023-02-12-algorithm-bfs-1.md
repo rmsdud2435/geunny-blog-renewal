@@ -3,7 +3,7 @@ layout: default
 title: 게임 맵 최단거리(BFS 문제)
 parent: 깊이/너비 우선 탐색(DFS/BFS) 알고리즘
 grand_parent: Algorithm
-permalink: /algorithm/dfs_bfs/bfs-algo-1/
+permalink: /algorithm/dfs_bfs/bfs-algo-1
 nav_order: 98
 ---
 
