@@ -84,8 +84,6 @@ nav_order: 98
 ### 본인답안
 
 ```java
-import java.util.*;
-
 public class 게임_맵_최단거리 {
     
     public static void main(String[] args) {
