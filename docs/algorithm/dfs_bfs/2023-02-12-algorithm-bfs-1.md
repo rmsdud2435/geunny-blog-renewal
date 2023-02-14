@@ -160,3 +160,118 @@ public class 게임_맵_최단거리 {
     }
 }
 ```
+
+
+### dfs로 풀어서 답은 맞았지만 효율성에서 틀린 답안
+
+```java
+public int dfs(int[][] maps, int x, int y, int moveCount){
+    if(y == maps.length-1 && x == maps[y].length-1){
+        return moveCount;
+    }else if(y >= maps.length || y<0 || x >= maps[y].length || x<0){
+        return -1;
+    }else if(maps[y][x]==0){
+        return -1;
+    }else if(leastVal != -1 && moveCount >= leastVal){
+        return -1;
+    }else{
+        if(originalMaps[y][x] != 1 && originalMaps[y][x] < moveCount ){
+            System.out.println("position x: " + x + ", y: " + y + " and moveCount is " + moveCount);
+            System.out.println("originalMaps[y][x] - " + originalMaps[y][x]);
+            System.out.println("It will return -1");
+            return -1;
+        }else{
+            System.out.println("position x: " + x + ", y: " + y + " and moveCount is " + moveCount);
+            System.out.println("originalMaps[y][x] - " + originalMaps[y][x]);
+            originalMaps[y][x] = moveCount;
+            System.out.println("after originalMaps[y][x] - " + originalMaps[y][x]);
+        }
+            
+        int[][] newMaps1 = new int[maps.length][maps[0].length];
+        int[][] newMaps2 = new int[maps.length][maps[0].length];
+        int[][] newMaps3 = new int[maps.length][maps[0].length];
+        int[][] newMaps4 = new int[maps.length][maps[0].length];
+            
+        for(int i = 0; i < maps.length; i++){
+            for(int j = 0; j < maps[0].length; j++){
+                newMaps1[i][j] = maps[i][j];
+                newMaps2[i][j] = maps[i][j];
+                newMaps3[i][j] = maps[i][j];
+                newMaps4[i][j] = maps[i][j];
+            }
+        }
+        
+        newMaps1[y][x]=0;
+        newMaps2[y][x]=0;
+        newMaps3[y][x]=0;
+        newMaps4[y][x]=0;
+        int right = dfs(newMaps1,x+1,y,moveCount+1);
+        int left = dfs(newMaps2,x-1,y,moveCount+1);
+        int down = dfs(newMaps3,x,y+1,moveCount+1);
+        int up = dfs(newMaps4,x,y-1,moveCount+1);
+        
+        int[] a = {right,left,down,up};
+        for(int i = 0; i < a.length; i++){
+            if(a[i] != -1 && (a[i] < leastVal || leastVal == -1)){ 
+                leastVal = a[i]; 
+            }
+        }
+          
+        return leastVal;
+    }
+}
+```
+
+
+### 점수가 높았던 답안
+
+```java
+public static int answer(int[][] maps) {
+    int X = maps[0].length;
+    int Y = maps.length;
+    boolean[][] visited = new boolean[Y][X];
+    Queue<Point> q = new LinkedList<Point>();
+    int x = 0;
+    int y = 0;
+    int size = 0;
+    int cnt = 0;
+    Point p = new Point();
+    q.add(new Point(Y-1,X-1));
+    while(q.isEmpty()==false) {
+        size = q.size();
+        cnt++;
+        for(int i=0;i<size;i++)
+        {
+            p = q.peek();
+            x = p.y;
+            y = p.x;
+            q.remove();
+            if(visited[y][x]==true)
+                continue;
+            maps[y][x] = 0;
+            visited[y][x] = true;
+            if(x==0 && y==0) {
+                return cnt;
+            }
+            if(x-1>-1 && maps[y][x-1]==1) { //왼쪽 한칸
+                q.add(new Point(y,x-1));
+            }
+            if(x+1<X && maps[y][x+1]==1) { //오른쪽 한칸
+                q.add(new Point(y,x+1));
+            }
+            if(y-1>-1 && maps[y-1][x]==1) { //위쪽 한칸
+                q.add(new Point(y-1,x));
+            }
+            if(y+1<Y && maps[y+1][x]==1) { //아래쪽 한칸
+                q.add(new Point(y+1,x));
+            }
+        }
+    }
+    return -1;
+}
+```
+
+
+## 알게된 점 및 아쉬운 점
+
+ 이전까지만 해도 일단 머리 박고 문제 풀기 시작했는데 코테를 잘보는 동기말로는 이미 수학처럼 문제 유형과 거기에 대한 모범답안은 정해졌있다고 하며, 이 문제도 그런류 중 하나라는 것이다. 좀 더 그런 부분들을 인지하고 풀면 빠르게 풀 수 있을 것 같다
