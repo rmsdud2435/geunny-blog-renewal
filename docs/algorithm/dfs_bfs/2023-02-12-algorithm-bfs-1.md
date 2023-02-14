@@ -86,13 +86,13 @@ nav_order: 98
 ```java
 import java.util.*;
 
-public class 게임_맵_최단거리 {
+public class Solution {
     
     public static void main(String[] args) {
         // numbers			target	return
         // [1, 1, 1, 1, 1]	3		5
         // [4, 1, 2, 1]		4		2
-        게임_맵_최단거리 obj = new 게임_맵_최단거리();
+        Solution obj = new 게임_맵_최단거리();
         int[][] maps = {{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,1},{0,0,0,0,1}};
         System.out.println( obj.solution(maps));
         int[][] maps2 = {{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,0},{0,0,0,0,1}};
