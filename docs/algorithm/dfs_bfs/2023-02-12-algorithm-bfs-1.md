@@ -84,7 +84,7 @@ nav_order: 98
 ### 본인답안
 
 ```java
-public class 게임_맵_최단거리 {
+class 게임_맵_최단거리 {
     
     public static void main(String[] args) {
         // numbers			target	return
