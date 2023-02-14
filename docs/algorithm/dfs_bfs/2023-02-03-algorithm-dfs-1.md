@@ -8,82 +8,94 @@ nav_order: 99
 ---
 
 ## 문제설명
- ROR 게임은 두 팀으로 나누어서 진행하며, 상대 팀 진영을 먼저 파괴하면 이기는 게임입니다. 따라서, 각 팀은 상대 팀 진영에 최대한 빨리 도착하는 것이 유리합니다. 지금부터 당신은 한 팀의 팀원이 되어 게임을 진행하려고 합니다. 
+ n개의 음이 아닌 정수들이 있습니다. 이 정수들을 순서를 바꾸지 않고 적절히 더하거나 빼서 타겟 넘버를 만들려고 합니다. 예를 들어 [1, 1, 1, 1, 1]로 숫자 3을 만들려면 다음 다섯 방법을 쓸 수 있습니다.
+ - -1+1+1+1+1 = 3
+ - +1-1+1+1+1 = 3
+ - +1+1-1+1+1 = 3
+ - +1+1+1-1+1 = 3
+ - +1+1+1+1-1 = 3
+ 사용할 수 있는 숫자가 담긴 배열 numbers, 타겟 넘버 target이 매개변수로 주어질 때, 숫자를 적절히 더하고 빼서 타겟 넘버를 만드는 방법의 수를 return 하도록 solution 함수를 작성해주세요.
 
- 다음은 5 x 5 크기의 맵에, 당신의 캐릭터가 (행: 1, 열: 1) 위치에 있고, 상대 팀 진영은 (행: 5, 열: 5) 위치에 있는 경우의 예시입니다.
-
- * bfs_algo_1_01.png
- 위 그림에서 검은색 부분은 벽으로 막혀있어 갈 수 없는 길이며, 흰색 부분은 갈 수 있는 길입니다. 캐릭터가 움직일 때는 동, 서, 남, 북 방향으로 한 칸씩 이동하며, 게임 맵을 벗어난 길은 갈 수 없습니다.
-
- 아래 예시는 캐릭터가 상대 팀 진영으로 가는 두 가지 방법을 나타내고 있습니다.
- * 첫 번째 방법은 11개의 칸을 지나서 상대 팀 진영에 도착했습니다.
 
 ## 제한사항
- - 마라톤 경기에 참여한 선수의 수는 1명 이상 100,000명 이하입니다.
- - completion의 길이는 participant의 길이보다 1 작습니다.
- - 참가자의 이름은 1개 이상 20개 이하의 알파벳 소문자로 이루어져 있습니다.
- - 참가자 중에는 동명이인이 있을 수 있습니다.
+ - 주어지는 숫자의 개수는 2개 이상 20개 이하입니다.
+ - 각 숫자는 1 이상 50 이하인 자연수입니다.
+ - 타겟 넘버는 1 이상 1000 이하인 자연수입니다.
 
 
 ## 입출력 예
-예제 #1 leo는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.
-예제 #2 vinko는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.
-예제 #3 mislav는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.
+```java
+//numbers			target	return
+//[1, 1, 1, 1, 1]	3		5
+//[4, 1, 2, 1]		4		2
+```
 
-participant	                            completion	                      return
-[leo, kiki, eden]                      	[eden, kiki]	                    leo
-[marina, josipa, nikola, vinko, filipa]	[josipa, filipa, marina, nikola]	vinko
+## 입출력 예 설명
 
-## 본인답안
+### 입출력 예 #1
+
+문제 예시와 같습니다.
+
+### 입출력 예 #2
+- +4+1-2+1 = 4
+- +4-1+2-1 = 4
+총 2가지 방법이 있으므로, 2를 return 합니다.
+
+## 출처
+ - 프로그래머스: https://school.programmers.co.kr/learn/courses/30/lessons/43165
+
+
+## 문제풀이
+
+### 본인답안
 
 ```java
-class Solution {
-    public String solution(String[] participant, String[] completion) {
-        for(int i = 0; i < participant.length; i++){
-            boolean finish = true;
-            
-            for(int j = 0; j < completion.length; j++){
-                if(completion[j].equals(participant[i])){
-                    completion[j] = "";
-                    finish = false;
-                    break;
-                }
+public class 타겟_넘버 {
+    public int solution(int[] numbers, int target) {
+    	int answer = 0;
+        answer = getSum(numbers,target, 0, 0);
+        return answer;
+    }// solution
+    
+    public int getSum(int[] numbers, int target, int sum, int order){  
+        if(order == numbers.length){
+            if(sum==target){
+                return 1;
+            }else{
+                return 0;
             }
-            
-            if(finish){
-                return participant[i];
-            }
-        }      
-        return "문제에 맞지 않는 현상이 발견 되었습니다.";
+        }else{
+            int leftResult = sum - numbers[order]; 
+            int rightResult = sum + numbers[order];
+            return getSum(numbers, target, rightResult, order+1) + getSum(numbers, target, leftResult, order+1);
+        }
     }
 }
 ```
+
+### 모법답안
+```java
+public int solution2(int[] numbers, int target) {
+    int answer = 0;
+    answer = dfs(numbers, 0, 0, target);
+    return answer;
+}
+
+int dfs(int[] numbers, int n, int sum, int target) {
+    if(n == numbers.length) {
+        if(sum == target) {
+            return 1;
+        }
+        return 0;
+    }
+    return dfs(numbers, n + 1, sum + numbers[n], target) + dfs(numbers, n + 1, sum - numbers[n], target);
+}
+```
+
 
 ## 알게된 점 및 아쉬운 점
 
  - 자꾸 String배열에 length함수가 아닌 size함수를 사용한다. 베열은 length, 리스트가 size()!
  - equals() 만족하면 배열에서 제거하고 팠지만 찾지 못해서 ""값으로 대체. 개인적으로 위험하다고 판단되
  - 푸는 것만 급급해 해쉬를 사용할 생각을 못했네요.
-
-## 점수가 높았던 답안
-
-```java
-import java.util.HashMap;
-
-class Solution {
-    public String solution(String[] participant, String[] completion) {
-        String answer = "";
-        HashMap<String, Integer> hm = new HashMap<>();
-        for (String player : participant) hm.put(player, hm.getOrDefault(player, 0) + 1);
-        for (String player : completion) hm.put(player, hm.get(player) - 1);
-
-        for (String key : hm.keySet()) {
-            if (hm.get(key) != 0){
-                answer = key;
-            }
-        }
-        return answer;
-    }
-}
-```
 
