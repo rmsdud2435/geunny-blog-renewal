@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Heap 알고리즘 문제 - 2
-parent: Heap Algorithm
+parent: HeaHeap 알고리즘
 grand_parent: Algorithm
 permalink: /algorithm/heap/heap-algo-1/
 nav_order: 98

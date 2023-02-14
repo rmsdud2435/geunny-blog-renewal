@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Hash Algorithm
+title: Hash 알고리즘
 has_children: true
 parent: Algorithm
 permalink: /algorithm/hash/

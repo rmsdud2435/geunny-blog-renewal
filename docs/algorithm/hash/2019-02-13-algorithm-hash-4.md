@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Hash 알고리즘 문제 - 4
-parent: Hash Algorithm
+parent: Hash 알고리즘
 grand_parent: Algorithm
 permalink: /algorithm/hash/hash-algo-4/
 nav_order: 96

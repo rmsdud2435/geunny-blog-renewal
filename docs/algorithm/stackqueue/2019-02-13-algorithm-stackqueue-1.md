@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Stack/Queue 알고리즘 문제 - 1
-parent: Stack Queue Algorithm
+parent: Stack/Queue 알고리즘
 grand_parent: Algorithm
 permalink: /algorithm/stackqueue/sq-algo-1/
 nav_order: 99

@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Hash 알고리즘 문제 - 2
-parent: Hash 알고리즘
+title: 게임 맵 최단거리(BFS 문제)
+parent: 깊이/너비 우선 탐색(DFS/BFS) 알고리즘
 grand_parent: Algorithm
-permalink: /algorithm/hash/hash-algo-2/
+permalink: /algorithm/dfs_bfs/bfs-algo-1/
 nav_order: 98
 ---
 

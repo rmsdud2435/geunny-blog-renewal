@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Hash 알고리즘 문제 - 1
-parent: Hash 알고리즘
+title: 타겟 넘버(DFS 문제)
+parent: 깊이/너비 우선 탐색(DFS/BFS) 알고리즘
 grand_parent: Algorithm
-permalink: /algorithm/hash/hash-algo-1/
+permalink: /algorithm/dfs_bfs/dfs-algo-1/
 nav_order: 99
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Hash 알고리즘 문제 - 3
-parent: Hash Algorithm
+parent: Hash 알고리즘
 grand_parent: Algorithm
 permalink: /algorithm/hash/hash-algo-3/
 nav_order: 97
