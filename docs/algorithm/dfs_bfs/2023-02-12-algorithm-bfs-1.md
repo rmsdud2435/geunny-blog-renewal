@@ -92,7 +92,7 @@ public class Solution {
         // numbers			target	return
         // [1, 1, 1, 1, 1]	3		5
         // [4, 1, 2, 1]		4		2
-        Solution obj = new 게임_맵_최단거리();
+        Solution obj = new Solution();
         int[][] maps = {{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,1},{0,0,0,0,1}};
         System.out.println( obj.solution(maps));
         int[][] maps2 = {{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,0},{0,0,0,0,1}};
