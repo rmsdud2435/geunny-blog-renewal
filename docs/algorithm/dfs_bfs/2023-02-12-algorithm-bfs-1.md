@@ -101,7 +101,7 @@ public class 게임_맵_최단거리 {
     
     private boolean[][] visitCheckArr;
     private int[][] currentMap;
-
+    
     private int sourceX;
     private int sourceY;
 
@@ -112,7 +112,7 @@ public class 게임_맵_최단거리 {
     /* 최종 답변 */
     public int solution(int[][] maps) {
         int answer = 0;
-
+        
         //XY의 최대 좌표
         sourceX = maps[0].length;
         sourceY = maps.length;
@@ -159,7 +159,7 @@ public class 게임_맵_최단거리 {
             for(int[] nextNode : nextNodeArr){
                 if(nextNode[0] >= sourceX || nextNode[0] < 0 || nextNode[1] >= sourceY || nextNode[1] < 0){
                     continue;
-                }else if(visitCheckArr[nextNode[1]][nextNode[0]] || currentMap[nextNode[1]][nextNode[0]] == 0){ 
+                }else if(visitCheckArr[nextNode[1]][nextNode[0]] || currentMap[nextNode[1]][nextNode[0]] == 0){
                     continue;
                 }else if(currentMap[nextNode[1]][nextNode[0]] > nextNode[2] || currentMa[nextNode[1]][nextNode[0]] == 1 ){
                     currentMap[nextNode[1]][nextNode[0]] = nextNode[2];
