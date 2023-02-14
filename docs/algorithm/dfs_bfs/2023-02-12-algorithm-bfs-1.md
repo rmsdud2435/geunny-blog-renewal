@@ -56,8 +56,6 @@ nav_order: 98
 
 ### 입출력 예 설명
 
-ㅎㅇ
-
  __입출력 예 #1__
 
  주어진 데이터는 다음과 같습니다.
@@ -83,96 +81,7 @@ nav_order: 98
 
 ## 문제풀이
 
-ㅇㅎ
-
 ### 본인답안
-
-```java
-import java.util.*;
-    
-public class 게임_맵_최단거리 {
-    
-    public static void main(String[] args) {
-        // numbers			target	return
-        // [1, 1, 1, 1, 1]	3		5
-        // [4, 1, 2, 1]		4		2
-        게임_맵_최단거리 obj = new 게임_맵_최단거리();
-        int[][] maps = {{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,1},{0,0,0,0,1}};
-        System.out.println( obj.solution(maps));
-        int[][] maps2 = {{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,0},{0,0,0,0,1}};
-        System.out.println( obj.solution(maps2));
-    }
-    
-    private boolean[][] visitCheckArr;
-    private int[][] currentMap;
-
-    private int sourceX;
-    private int sourceY;
-
-    /* 오답에 사용한 전역변수 */
-    private int leastVal = -1;
-    private int[][] originalMaps;
-    
-    /* 최종 답변 */
-    public int solution(int[][] maps) {
-        int answer = 0;
-        
-        //XY의 최대 좌표
-        sourceX = maps[0].length;
-        sourceY = maps.length;
-
-        //방문여부 저장하는 배열
-        visitCheckArr = new boolean[sourceY][sourceX];
-        currentMap = new int[sourceY][sourceX];
-        for(int i = 0; i < sourceY; i++){
-            for(int j = 0; j < sourceX; j++){
-                visitCheckArr[i][j] = false;
-                currentMap[i][j] = maps[i][j];
-            }
-        }
-        
-        if(bfs(0, 0)){
-            answer =  currentMap[sourceY-1][sourceX-1];
-        }else{
-            answer = -1;
-        }
-
-        return answer;
-    }
-
-    public boolean bfs(int x, int y){
-        Queue<int[]> queue = new LinkedList<int[]>();
-        int[] startNode = {x,y,1};
-        queue.add(startNode);
-        while(!queue.isEmpty()){
-            int[] currentNode = queue.poll();
-
-            int currentX = currentNode[0];
-            int currentY = currentNode[1];
-            int currentDepth = currentNode[2];
-
-            visitCheckArr[currentY][currentX] = true;
-            currentMap[currentY][currentX] = currentDepth;
-
-            int[] upXY = {currentX, currentY-1,currentDepth+1};
-            int[] downXY = {currentX, currentY+1, currentDepth+1};
-            int[] rightXY = {currentX+1, currentY,currentDepth+1};
-            int[] leftXY = {currentX-1, currentY, currentDepth+1};
-
-            int[][] nextNodeArr = {upXY, downXY, rightXY, leftXY};
-            for(int[] nextNode : nextNodeArr){
-                if(nextNode[0] >= sourceX || nextNode[0] < 0 || nextNode[1] >= sourceY || nextNode[1] < 0){
-                    continue;
-                }else if(visitCheckArr[nextNode[1]][nextNode[0]] || currentMap[nextNode[1]][nextNode[0]] == 0){
-                    continue;
-                }else if(currentMap[nextNode[1]][nextNode[0]] > nextNode[2] || currentMa[nextNode[1]][nextNode[0]] == 1 ){
-                    currentMap[nextNode[1]][nextNode[0]] = nextNode[2];
-                    queue.add(nextNode);
-                }
-            }
-        }
-        return visitCheckArr[sourceY-1][sourceX-1];
-    }
-}
-```
+ 
+ ㅠㅠ
 
